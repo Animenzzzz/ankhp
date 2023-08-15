@@ -13,6 +13,10 @@
 		04D09F6B2A8B547900503DFF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04D09F692A8B547900503DFF /* Main.storyboard */; };
 		04D09F6D2A8B547A00503DFF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04D09F6C2A8B547A00503DFF /* Assets.xcassets */; };
 		04D09F702A8B547A00503DFF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04D09F6E2A8B547A00503DFF /* LaunchScreen.storyboard */; };
+		04D09F792A8B612200503DFF /* HPAPIMacro.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D09F782A8B612200503DFF /* HPAPIMacro.swift */; };
+		04D09F7B2A8B63C400503DFF /* HPAPIProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D09F7A2A8B63C400503DFF /* HPAPIProtocols.swift */; };
+		04D09F7D2A8B646E00503DFF /* HPHTTP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D09F7C2A8B646E00503DFF /* HPHTTP.swift */; };
+		04D09F802A8B726700503DFF /* ReqNewsListEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D09F7F2A8B726700503DFF /* ReqNewsListEntity.swift */; };
 		AAA9D8340C0554A3B6B1F8D3 /* Pods_ANKHP.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4081144F2D964DEBFA94D58 /* Pods_ANKHP.framework */; };
 /* End PBXBuildFile section */
 
@@ -25,6 +29,10 @@
 		04D09F6C2A8B547A00503DFF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		04D09F6F2A8B547A00503DFF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		04D09F712A8B547A00503DFF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		04D09F782A8B612200503DFF /* HPAPIMacro.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HPAPIMacro.swift; sourceTree = "<group>"; };
+		04D09F7A2A8B63C400503DFF /* HPAPIProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HPAPIProtocols.swift; sourceTree = "<group>"; };
+		04D09F7C2A8B646E00503DFF /* HPHTTP.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HPHTTP.swift; sourceTree = "<group>"; };
+		04D09F7F2A8B726700503DFF /* ReqNewsListEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReqNewsListEntity.swift; sourceTree = "<group>"; };
 		A4081144F2D964DEBFA94D58 /* Pods_ANKHP.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ANKHP.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D5EB03037016DCFB876D2D6E /* Pods-ANKHP.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ANKHP.debug.xcconfig"; path = "Target Support Files/Pods-ANKHP/Pods-ANKHP.debug.xcconfig"; sourceTree = "<group>"; };
 		E59C3D222C5CCB5657450903 /* Pods-ANKHP.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ANKHP.release.xcconfig"; path = "Target Support Files/Pods-ANKHP/Pods-ANKHP.release.xcconfig"; sourceTree = "<group>"; };
@@ -63,6 +71,7 @@
 		04D09F622A8B547900503DFF /* ANKHP */ = {
 			isa = PBXGroup;
 			children = (
+				04D09F772A8B609200503DFF /* Service */,
 				04D09F632A8B547900503DFF /* AppDelegate.swift */,
 				04D09F652A8B547900503DFF /* SceneDelegate.swift */,
 				04D09F672A8B547900503DFF /* ViewController.swift */,
@@ -74,13 +83,31 @@
 			path = ANKHP;
 			sourceTree = "<group>";
 		};
+		04D09F772A8B609200503DFF /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				04D09F7E2A8B71FE00503DFF /* Entity */,
+				04D09F782A8B612200503DFF /* HPAPIMacro.swift */,
+				04D09F7A2A8B63C400503DFF /* HPAPIProtocols.swift */,
+				04D09F7C2A8B646E00503DFF /* HPHTTP.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		04D09F7E2A8B71FE00503DFF /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				04D09F7F2A8B726700503DFF /* ReqNewsListEntity.swift */,
+			);
+			path = Entity;
+			sourceTree = "<group>";
+		};
 		04EC7C9AD49EF1E80134E427 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
 				D5EB03037016DCFB876D2D6E /* Pods-ANKHP.debug.xcconfig */,
 				E59C3D222C5CCB5657450903 /* Pods-ANKHP.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -207,8 +234,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04D09F792A8B612200503DFF /* HPAPIMacro.swift in Sources */,
 				04D09F682A8B547900503DFF /* ViewController.swift in Sources */,
 				04D09F642A8B547900503DFF /* AppDelegate.swift in Sources */,
+				04D09F7D2A8B646E00503DFF /* HPHTTP.swift in Sources */,
+				04D09F7B2A8B63C400503DFF /* HPAPIProtocols.swift in Sources */,
+				04D09F802A8B726700503DFF /* ReqNewsListEntity.swift in Sources */,
 				04D09F662A8B547900503DFF /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
