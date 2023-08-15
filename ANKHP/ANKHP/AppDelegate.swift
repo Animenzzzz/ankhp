@@ -17,7 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         HPHTTP.shared.reqNewsList { err, data in
             if err == nil, data != nil{
                 data!.result.data.forEach { item in
-                    print("shittt \(item.typeEnum)")
+                    print("shittt \(item.type)")
                 }
                 
             }

@@ -46,8 +46,7 @@ struct Result: Codable {
 struct Datum: Codable {
     let nid: String
     let tid: String?
-//    let type: TypeEnum before
-    let type: String
+    let type: TypeEnum
     let title: String
     let img: String
     let replies, lights: Int
@@ -67,16 +66,6 @@ struct Datum: Codable {
         case oldNewsID = "oldNewsId"
         case top, pv, gifList, read, showComment
     }
-    
-    
-    var typeEnum: TypeEnum {
-        if type == "IMG_TEXT"{
-            return TypeEnum.imgText
-        } else if type == "LINK"{
-            return TypeEnum.link
-        }
-        return TypeEnum.unknown
-    }
 }
 
 enum LinkType: String, Codable {
@@ -85,13 +74,11 @@ enum LinkType: String, Codable {
     case video = "VIDEO"
 }
 
-// before
-//enum TypeEnum: String, Codable {
-//    case imgText = "IMG_TEXT"
-//    case link = "LINK"
-//}
+
 enum TypeEnum: String, Codable {
-    case imgText,link,unknown
+    case imgText = "IMG_TEXT"
+    case link = "LINK"
+    case video = "VIDEO"
 }
 
 // MARK: - Encode/decode helpers
