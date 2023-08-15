@@ -15,6 +15,7 @@ import Foundation
 //   let reqNewsListEntity = try? JSONDecoder().decode(ReqNewsListEntity.self, from: jsonData)
 
 // MARK: - ReqNewsListEntity
+
 struct ReqNewsListEntity: Codable {
     let errorCode, errorMsg: String
     let result: Result
@@ -31,6 +32,7 @@ struct ReqNewsListEntity: Codable {
 }
 
 // MARK: - Result
+
 struct Result: Codable {
     let adPageID: String
     let data: [Datum]
@@ -43,6 +45,7 @@ struct Result: Codable {
 }
 
 // MARK: - Datum
+
 struct Datum: Codable {
     let nid: String
     let tid: String?
@@ -74,7 +77,6 @@ enum LinkType: String, Codable {
     case video = "VIDEO"
 }
 
-
 enum TypeEnum: String, Codable {
     case imgText = "IMG_TEXT"
     case link = "LINK"
@@ -84,7 +86,6 @@ enum TypeEnum: String, Codable {
 // MARK: - Encode/decode helpers
 
 class JSONNull: Codable, Hashable {
-
     public static func == (lhs: JSONNull, rhs: JSONNull) -> Bool {
         return true
     }
