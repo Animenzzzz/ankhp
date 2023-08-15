@@ -16,7 +16,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         HPHTTP.shared.reqNewsList { err, data in
             if err == nil, data != nil{
-                print("shittt \(data?.hostName)")
+                data!.result.data.forEach { item in
+                    print("shittt \(item.typeEnum)")
+                }
+                
             }
         }
         window = UIWindow()

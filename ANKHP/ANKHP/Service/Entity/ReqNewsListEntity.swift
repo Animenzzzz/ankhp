@@ -67,6 +67,16 @@ struct Datum: Codable {
         case oldNewsID = "oldNewsId"
         case top, pv, gifList, read, showComment
     }
+    
+    
+    var typeEnum: TypeEnum {
+        if type == "IMG_TEXT"{
+            return TypeEnum.imgText
+        } else if type == "LINK"{
+            return TypeEnum.link
+        }
+        return TypeEnum.unknown
+    }
 }
 
 enum LinkType: String, Codable {
@@ -80,6 +90,9 @@ enum LinkType: String, Codable {
 //    case imgText = "IMG_TEXT"
 //    case link = "LINK"
 //}
+enum TypeEnum: String, Codable {
+    case imgText,link,unknown
+}
 
 // MARK: - Encode/decode helpers
 
