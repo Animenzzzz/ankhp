@@ -5,11 +5,10 @@
 //  Created by mac on 2023/8/15.
 //
 
-import Foundation
 import Alamofire
+import Foundation
 
 class HPHTTP: HPAPIProtocols {
-    
     static let shared = HPHTTP()
     
     private init() {}
@@ -17,7 +16,7 @@ class HPHTTP: HPAPIProtocols {
     func reqNewsList(_ completionHandler: @escaping (NSError?, ReqNewsListEntity?) -> Void) {
         AF.request(fullNewsList()).response { resp in
             
-            guard resp.error == nil else{
+            guard resp.error == nil else {
                 completionHandler(NSError(
                     domain: "fullNewsList",
                     code: 1,
@@ -25,11 +24,8 @@ class HPHTTP: HPAPIProtocols {
                 return
             }
             
-            
             if resp.data != nil {
-                
                 do {
-                    
                     let entity = try JSONDecoder().decode(ReqNewsListEntity.self, from: resp.data!)
                     completionHandler(nil, entity)
                 } catch {
@@ -37,9 +33,7 @@ class HPHTTP: HPAPIProtocols {
                         domain: "fullNewsList",
                         code: 1,
                         userInfo: [NSLocalizedDescriptionKey: error.localizedDescription]), nil)
-                    
                 }
-                
                 
             } else {
                 completionHandler(NSError(
@@ -49,5 +43,4 @@ class HPHTTP: HPAPIProtocols {
             }
         }
     }
-    
 }
