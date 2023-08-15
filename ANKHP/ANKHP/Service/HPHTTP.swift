@@ -29,17 +29,17 @@ class HPHTTP: HPAPIProtocols {
             if resp.data != nil {
                 
                 do {
-
-                        let entity = try JSONDecoder().decode(ReqNewsListEntity.self, from: resp.data!)
+                    
+                    let entity = try JSONDecoder().decode(ReqNewsListEntity.self, from: resp.data!)
                     completionHandler(nil, entity)
-                    } catch {
-                        completionHandler(NSError(
-                            domain: "fullNewsList",
-                            code: 1,
-                            userInfo: [NSLocalizedDescriptionKey: error.localizedDescription]), nil)
-                        
-                    }
-
+                } catch {
+                    completionHandler(NSError(
+                        domain: "fullNewsList",
+                        code: 1,
+                        userInfo: [NSLocalizedDescriptionKey: error.localizedDescription]), nil)
+                    
+                }
+                
                 
             } else {
                 completionHandler(NSError(
@@ -49,5 +49,5 @@ class HPHTTP: HPAPIProtocols {
             }
         }
     }
-
+    
 }

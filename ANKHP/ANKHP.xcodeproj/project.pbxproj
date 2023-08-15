@@ -31,7 +31,7 @@
 		04D09F712A8B547A00503DFF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		04D09F782A8B612200503DFF /* HPAPIMacro.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HPAPIMacro.swift; sourceTree = "<group>"; };
 		04D09F7A2A8B63C400503DFF /* HPAPIProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HPAPIProtocols.swift; sourceTree = "<group>"; };
-		04D09F7C2A8B646E00503DFF /* HPHTTP.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HPHTTP.swift; sourceTree = "<group>"; };
+		04D09F7C2A8B646E00503DFF /* HPHTTP.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HPHTTP.swift; sourceTree = "<group>"; usesTabs = 0; wrapsLines = 1; };
 		04D09F7F2A8B726700503DFF /* ReqNewsListEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReqNewsListEntity.swift; sourceTree = "<group>"; };
 		A4081144F2D964DEBFA94D58 /* Pods_ANKHP.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ANKHP.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D5EB03037016DCFB876D2D6E /* Pods-ANKHP.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ANKHP.debug.xcconfig"; path = "Target Support Files/Pods-ANKHP/Pods-ANKHP.debug.xcconfig"; sourceTree = "<group>"; };
