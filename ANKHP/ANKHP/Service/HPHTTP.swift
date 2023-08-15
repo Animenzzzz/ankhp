@@ -14,7 +14,7 @@ class HPHTTP: HPAPIProtocols {
     private init() {}
     
     func reqNewsList(_ completionHandler: @escaping (NSError?, ReqNewsListEntity?) -> Void) {
-        AF.request(fullNewsList()).response { resp in
+        AF.request(fullNewsList).response { resp in
             
             guard resp.error == nil else {
                 completionHandler(NSError(
