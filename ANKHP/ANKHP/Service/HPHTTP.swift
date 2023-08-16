@@ -14,9 +14,8 @@ class HPHTTP: HPAPIProtocols {
     private init() {}
     
     fileprivate func callBack<T: Codable>(_ resp: AFDataResponse<Data?>) -> T? {
-        
         debugPrint(resp)
-        
+
         guard resp.error == nil else {
             debugPrint("req error \(String(describing: resp.error?.localizedDescription))")
             return nil
@@ -27,7 +26,8 @@ class HPHTTP: HPAPIProtocols {
                 let entity = try JSONDecoder().decode(T.self, from: resp.data!)
                 return entity
             } catch {
-                debugPrint("req error \(String(describing: error.localizedDescription))")
+                debugPrint("decode error \(error)")
+//                debugPrint("decode error \(String(describing: error.localizedDescription))")
                 return nil
             }
             
@@ -45,13 +45,17 @@ class HPHTTP: HPAPIProtocols {
         }
     }
     
+    func reqRecommendList(_ completionHandler: @escaping (NSError?, ReqRecommendListEntity?) -> Void) {
+        AF.request(fullUrlRecommendList).response { resp in
+            let result: ReqRecommendListEntity? = self.callBack(resp)
+            completionHandler(nil, result)
+        }
+    }
+    
     func reqHotList(_ completionHandler: @escaping (NSError?, ReqHotListEntity?) -> Void) {
         AF.request(fullUrlHotList).response { resp in
-            
-            if let result: ReqHotListEntity = self.callBack(resp) {
-                completionHandler(nil, result)
-                return
-            }
+            let result: ReqHotListEntity? = self.callBack(resp)
+            completionHandler(nil, result)
         }
     }
 }

@@ -1,3 +1,10 @@
+//
+//  ReqHotListEntity.swift
+//  ANKHP
+//
+//  Created by mac on 2023/8/16.
+//
+
 // This file was generated from JSON Schema using quicktype, do not modify it directly.
 // To parse the JSON, add this file to your project and do:
 //
@@ -6,58 +13,86 @@
 import Foundation
 
 // MARK: - ReqHotListEntity
-struct ReqHotListEntity: Codable {
-    let result: Result3
-    let crt: Int
+struct ReqRecommendListEntity: Codable {
+    let result: Result2
+    let isLogin, crt: Int
+    let requestID: String
+
+    enum CodingKeys: String, CodingKey {
+        case result
+        case isLogin = "is_login"
+        case crt
+        case requestID = "requestId"
+    }
 }
 
 // MARK: - Result
-struct Result3: Codable {
-    let listV2: [ListV23]
+struct Result2: Codable {
+    let data: [Datum2]
+    let topData: [JSONAny]
+    let notice: String
+    let navi: [JSONAny]
+    let empty: Bool
     let adPageID: String
-    let count: Int
+    let bannerNav: [BannerNav]
 
     enum CodingKeys: String, CodingKey {
-        case listV2
+        case data, topData, notice, navi, empty
         case adPageID = "ad_page_id"
-        case count
+        case bannerNav = "banner_nav"
     }
 }
 
-// MARK: - ListV2
-struct ListV23: Codable {
-    let isTop: Bool
-    let order: Int
-    let schemaURL, createTime: String
-    let thread: Thread3
+// MARK: - BannerNav
+struct BannerNav: Codable {
+    let schema: String
+    let icon: [String]
+    let name: String
+}
+
+// MARK: - Datum
+struct Datum2: Codable {
+    let xid: String
+    let data: DataClass
+    let type, schemaURL: String
+    let filterWords: [FilterWord]
+    let rec: String
+    let label: String?
 
     enum CodingKeys: String, CodingKey {
-        case isTop, order
-        case schemaURL = "schemaUrl"
-        case createTime, thread
+        case xid, data, type
+        case schemaURL = "schema_url"
+        case filterWords = "filter_words"
+        case rec, label
     }
 }
 
-// MARK: - Thread
-struct Thread3: Codable {
+// MARK: - DataClass
+struct DataClass: Codable {
     let fid, createTime, lastpostTime, type: String
     let title: String
     let tid, visits: Int
     let forumLogo: String
-    let lightReplies: [LightReply3]
+    let lightReplies: [LightReply]
     let puid, replies: Int
     let forumName: String
     let totalPics, recommendNum: Int
     let topicName, nickname: String
-    let topicLogo, header: String
+    let topicLogo: String
+    let header: String
     let topicID: Int
     let attr: String
-    let pics: [Pic3]
+    let pics: [Pic]
     let lights, shareNum: Int
-    let share: Share3
-    let isHot, contentType: Int
-    let nftInfo: NftInfo3
+    let bgColor: String?
+    let share: Share
+    let summary: String?
+    let isHot: Int
+    let tagInfoList: [TagInfoList]?
+    let contentType, reason: Int
+    let nftInfo: NftInfo
     let isLock, status: Int
+    let video: Video?
 
     enum CodingKeys: String, CodingKey {
         case fid
@@ -77,46 +112,37 @@ struct Thread3: Codable {
         case topicID = "topic_id"
         case attr, pics, lights
         case shareNum = "share_num"
-        case share
+        case bgColor = "bg_color"
+        case share, summary
         case isHot = "is_hot"
-        case contentType, nftInfo
+        case tagInfoList, contentType, reason, nftInfo
         case isLock = "is_lock"
-        case status
+        case status, video
     }
 }
 
 // MARK: - LightReply
-struct LightReply3: Codable {
+struct LightReply: Codable {
     let lightCount, allLightCount, puid, totalPics: Int
     let nickname: String
     let header: String
     let pid: Int
     let attr: String
-    let pics: [JSONAny3]
+    let pics: [Pic]
     let content: String
-    let quote: Quote3
     let createTime: Int
+    let quote: Quote?
 
     enum CodingKeys: String, CodingKey {
         case lightCount = "light_count"
         case allLightCount, puid
         case totalPics = "total_pics"
-        case nickname, header, pid, attr, pics, content, quote, createTime
+        case nickname, header, pid, attr, pics, content, createTime, quote
     }
 }
 
-// MARK: - Quote
-struct Quote3: Codable {
-    let attr, nickname, content: String
-    let pid: Int
-}
-
-// MARK: - NftInfo
-struct NftInfo3: Codable {
-}
-
 // MARK: - Pic
-struct Pic3: Codable {
+struct Pic: Codable {
     let url: String
     let isGIF: Int
     let width, height: String
@@ -128,8 +154,18 @@ struct Pic3: Codable {
     }
 }
 
+// MARK: - Quote
+struct Quote: Codable {
+    let attr, nickname, content: String
+    let pid: Int
+}
+
+// MARK: - NftInfo
+struct NftInfo: Codable {
+}
+
 // MARK: - Share
-struct Share3: Codable {
+struct Share: Codable {
     let url: String
     let wechatMoments, wechat, qzone, weibo: String
     let qq, summary: String
@@ -141,11 +177,61 @@ struct Share3: Codable {
     }
 }
 
+// MARK: - TagInfoList
+struct TagInfoList: Codable {
+    let tagID: Int
+    let tagName, tagSchema, description: String
+    let followNum, discussNum: Int
+    let icon: String
+    let aggregationType: String
+    let createDt: Int
+    let competitionType: String
+
+    enum CodingKeys: String, CodingKey {
+        case tagID = "tagId"
+        case tagName, tagSchema, description, followNum, discussNum, icon, aggregationType, createDt, competitionType
+    }
+}
+
+// MARK: - Video
+struct Video: Codable {
+    let duration: String
+    let vid: Int
+    let img: String
+    let size: String
+    let width: Int
+    let playNum: String
+    let url: String
+    let bulletCommentNum: String
+    let height: Int
+    let bgImg: String
+
+    enum CodingKeys: String, CodingKey {
+        case duration, vid, img, size, width
+        case playNum = "play_num"
+        case url
+        case bulletCommentNum = "bullet_comment_num"
+        case height
+        case bgImg = "bg_img"
+    }
+}
+
+// MARK: - FilterWord
+struct FilterWord: Codable {
+    let id, name, type: String
+    let selected: Bool
+
+    enum CodingKeys: String, CodingKey {
+        case id, name, type
+        case selected = "_selected"
+    }
+}
+
 // MARK: - Encode/decode helpers
 
-class JSONNull3: Codable, Hashable {
+class JSONNull2: Codable, Hashable {
 
-    public static func == (lhs: JSONNull3, rhs: JSONNull3) -> Bool {
+    public static func == (lhs: JSONNull2, rhs: JSONNull2) -> Bool {
         return true
     }
 
@@ -158,7 +244,7 @@ class JSONNull3: Codable, Hashable {
     public required init(from decoder: Decoder) throws {
         let container = try decoder.singleValueContainer()
         if !container.decodeNil() {
-            throw DecodingError.typeMismatch(JSONNull3.self, DecodingError.Context(codingPath: decoder.codingPath, debugDescription: "Wrong type for JSONNull3"))
+            throw DecodingError.typeMismatch(JSONNull.self, DecodingError.Context(codingPath: decoder.codingPath, debugDescription: "Wrong type for JSONNull"))
         }
     }
 
@@ -168,7 +254,7 @@ class JSONNull3: Codable, Hashable {
     }
 }
 
-class JSONCodingKey3: CodingKey {
+class JSONCodingKey: CodingKey {
     let key: String
 
     required init?(intValue: Int) {
@@ -188,13 +274,13 @@ class JSONCodingKey3: CodingKey {
     }
 }
 
-class JSONAny3: Codable {
+class JSONAny: Codable {
 
     let value: Any
 
     static func decodingError(forCodingPath codingPath: [CodingKey]) -> DecodingError {
         let context = DecodingError.Context(codingPath: codingPath, debugDescription: "Cannot decode JSONAny")
-        return DecodingError.typeMismatch(JSONAny3.self, context)
+        return DecodingError.typeMismatch(JSONAny.self, context)
     }
 
     static func encodingError(forValue value: Any, codingPath: [CodingKey]) -> EncodingError {
@@ -216,7 +302,7 @@ class JSONAny3: Codable {
             return value
         }
         if container.decodeNil() {
-            return JSONNull3()
+            return JSONNull()
         }
         throw decodingError(forCodingPath: container.codingPath)
     }
@@ -236,19 +322,19 @@ class JSONAny3: Codable {
         }
         if let value = try? container.decodeNil() {
             if value {
-                return JSONNull3()
+                return JSONNull()
             }
         }
         if var container = try? container.nestedUnkeyedContainer() {
             return try decodeArray(from: &container)
         }
-        if var container = try? container.nestedContainer(keyedBy: JSONCodingKey3.self) {
+        if var container = try? container.nestedContainer(keyedBy: JSONCodingKey.self) {
             return try decodeDictionary(from: &container)
         }
         throw decodingError(forCodingPath: container.codingPath)
     }
 
-    static func decode(from container: inout KeyedDecodingContainer<JSONCodingKey3>, forKey key: JSONCodingKey3) throws -> Any {
+    static func decode(from container: inout KeyedDecodingContainer<JSONCodingKey>, forKey key: JSONCodingKey) throws -> Any {
         if let value = try? container.decode(Bool.self, forKey: key) {
             return value
         }
@@ -263,13 +349,13 @@ class JSONAny3: Codable {
         }
         if let value = try? container.decodeNil(forKey: key) {
             if value {
-                return JSONNull3()
+                return JSONNull()
             }
         }
         if var container = try? container.nestedUnkeyedContainer(forKey: key) {
             return try decodeArray(from: &container)
         }
-        if var container = try? container.nestedContainer(keyedBy: JSONCodingKey3.self, forKey: key) {
+        if var container = try? container.nestedContainer(keyedBy: JSONCodingKey.self, forKey: key) {
             return try decodeDictionary(from: &container)
         }
         throw decodingError(forCodingPath: container.codingPath)
@@ -284,7 +370,7 @@ class JSONAny3: Codable {
         return arr
     }
 
-    static func decodeDictionary(from container: inout KeyedDecodingContainer<JSONCodingKey3>) throws -> [String: Any] {
+    static func decodeDictionary(from container: inout KeyedDecodingContainer<JSONCodingKey>) throws -> [String: Any] {
         var dict = [String: Any]()
         for key in container.allKeys {
             let value = try decode(from: &container, forKey: key)
@@ -303,13 +389,13 @@ class JSONAny3: Codable {
                 try container.encode(value)
             } else if let value = value as? String {
                 try container.encode(value)
-            } else if value is JSONNull3 {
+            } else if value is JSONNull {
                 try container.encodeNil()
             } else if let value = value as? [Any] {
                 var container = container.nestedUnkeyedContainer()
                 try encode(to: &container, array: value)
             } else if let value = value as? [String: Any] {
-                var container = container.nestedContainer(keyedBy: JSONCodingKey3.self)
+                var container = container.nestedContainer(keyedBy: JSONCodingKey.self)
                 try encode(to: &container, dictionary: value)
             } else {
                 throw encodingError(forValue: value, codingPath: container.codingPath)
@@ -317,9 +403,9 @@ class JSONAny3: Codable {
         }
     }
 
-    static func encode(to container: inout KeyedEncodingContainer<JSONCodingKey3>, dictionary: [String: Any]) throws {
+    static func encode(to container: inout KeyedEncodingContainer<JSONCodingKey>, dictionary: [String: Any]) throws {
         for (key, value) in dictionary {
-            let key = JSONCodingKey3(stringValue: key)!
+            let key = JSONCodingKey(stringValue: key)!
             if let value = value as? Bool {
                 try container.encode(value, forKey: key)
             } else if let value = value as? Int64 {
@@ -328,13 +414,13 @@ class JSONAny3: Codable {
                 try container.encode(value, forKey: key)
             } else if let value = value as? String {
                 try container.encode(value, forKey: key)
-            } else if value is JSONNull3 {
+            } else if value is JSONNull {
                 try container.encodeNil(forKey: key)
             } else if let value = value as? [Any] {
                 var container = container.nestedUnkeyedContainer(forKey: key)
                 try encode(to: &container, array: value)
             } else if let value = value as? [String: Any] {
-                var container = container.nestedContainer(keyedBy: JSONCodingKey3.self, forKey: key)
+                var container = container.nestedContainer(keyedBy: JSONCodingKey.self, forKey: key)
                 try encode(to: &container, dictionary: value)
             } else {
                 throw encodingError(forValue: value, codingPath: container.codingPath)
@@ -351,7 +437,7 @@ class JSONAny3: Codable {
             try container.encode(value)
         } else if let value = value as? String {
             try container.encode(value)
-        } else if value is JSONNull3 {
+        } else if value is JSONNull {
             try container.encodeNil()
         } else {
             throw encodingError(forValue: value, codingPath: container.codingPath)
@@ -360,25 +446,25 @@ class JSONAny3: Codable {
 
     public required init(from decoder: Decoder) throws {
         if var arrayContainer = try? decoder.unkeyedContainer() {
-            self.value = try JSONAny3.decodeArray(from: &arrayContainer)
-        } else if var container = try? decoder.container(keyedBy: JSONCodingKey3.self) {
-            self.value = try JSONAny3.decodeDictionary(from: &container)
+            self.value = try JSONAny.decodeArray(from: &arrayContainer)
+        } else if var container = try? decoder.container(keyedBy: JSONCodingKey.self) {
+            self.value = try JSONAny.decodeDictionary(from: &container)
         } else {
             let container = try decoder.singleValueContainer()
-            self.value = try JSONAny3.decode(from: container)
+            self.value = try JSONAny.decode(from: container)
         }
     }
 
     public func encode(to encoder: Encoder) throws {
         if let arr = self.value as? [Any] {
             var container = encoder.unkeyedContainer()
-            try JSONAny3.encode(to: &container, array: arr)
+            try JSONAny.encode(to: &container, array: arr)
         } else if let dict = self.value as? [String: Any] {
-            var container = encoder.container(keyedBy: JSONCodingKey3.self)
-            try JSONAny3.encode(to: &container, dictionary: dict)
+            var container = encoder.container(keyedBy: JSONCodingKey.self)
+            try JSONAny.encode(to: &container, dictionary: dict)
         } else {
             var container = encoder.singleValueContainer()
-            try JSONAny3.encode(to: &container, value: self.value)
+            try JSONAny.encode(to: &container, value: self.value)
         }
     }
 }
