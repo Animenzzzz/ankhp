@@ -156,7 +156,8 @@ struct Pic: Codable {
 
 // MARK: - Quote
 struct Quote: Codable {
-    let attr, nickname, content: String
+    let nickname: String?
+    let attr, content: String
     let pid: Int
 }
 
