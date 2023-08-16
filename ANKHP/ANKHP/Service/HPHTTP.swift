@@ -27,7 +27,6 @@ class HPHTTP: HPAPIProtocols {
                 return entity
             } catch {
                 debugPrint("decode error \(error)")
-//                debugPrint("decode error \(String(describing: error.localizedDescription))")
                 return nil
             }
             

@@ -9,21 +9,21 @@ import Foundation
 
 // MARK: - 请求参数
 
-let paramTagCode = "tagCode=nba"
-let paramClient = "client=E91C96E9-E4DE-40BE-857A-E0BE80007DDA"
-let paramClientId = "clientId=138856427"
+fileprivate let paramTagCode = "tagCode=nba"
+fileprivate let paramClient = "client=E91C96E9-E4DE-40BE-857A-E0BE80007DDA"
+fileprivate let paramClientId = "clientId=138856427"
 
 // MARK: - URL
 
 // domain
-let hupuGamesDomain = "https://games.mobileapi.hupu.com/3/8.0.48"
-let hupuBBSDomain = "https://bbs.mobileapi.hupu.com/3/8.0.48"
+fileprivate let hupuGamesDomain = "https://games.mobileapi.hupu.com/3/8.0.48"
+fileprivate let hupuBBSDomain = "https://bbs.mobileapi.hupu.com/3/8.0.48"
 // 赛事 -NBA列表
-let urlNewsList = "\(hupuGamesDomain)/basketballapi/news/v2/newsList"
+fileprivate let urlNewsList = "\(hupuGamesDomain)/basketballapi/news/v2/newsList"
 // 推荐 列表
-let urlRecommendList = "\(hupuGamesDomain)/buffer/hotList"
+fileprivate let urlRecommendList = "\(hupuGamesDomain)/buffer/hotList"
 // 热榜 列表
-let urlHotList = "\(hupuGamesDomain)/hotRank/"
+fileprivate let urlHotList = "\(hupuGamesDomain)/hotRank/"
 
 var fullUrlNewsList: String {
     let reqUrl = urlNewsList + "?preCount=0&\(paramTagCode)"
