@@ -94,14 +94,14 @@ struct LightReply3: Codable {
     let attr: String
     let pics: [JSONAny3]
     let content: String
-    let quote: Quote3
+//    let quote: Quote3
     let createTime: Int
 
     enum CodingKeys: String, CodingKey {
         case lightCount = "light_count"
         case allLightCount, puid
         case totalPics = "total_pics"
-        case nickname, header, pid, attr, pics, content, quote, createTime
+        case nickname, header, pid, attr, pics, content, createTime
     }
 }
 
