@@ -14,7 +14,7 @@ class HPHTTP: HPAPIProtocols {
     private init() {}
     
     func reqNewsList(_ completionHandler: @escaping (NSError?, ReqNewsListEntity?) -> Void) {
-        AF.request(fullNewsList).response { resp in
+        AF.request(fullUrlNewsList).response { resp in
             
             guard resp.error == nil else {
                 completionHandler(NSError(
@@ -41,6 +41,13 @@ class HPHTTP: HPAPIProtocols {
                     code: 1,
                     userInfo: [NSLocalizedDescriptionKey: "Failed to convert Data to String"]), nil)
             }
+        }
+    }
+    
+    func reqHotList(_ completionHandler: @escaping (NSError?, ReqNewsListEntity?) -> Void) {
+        AF.request(fullUrlHotList).response { resp in
+            
+            debugPrint(resp)
         }
     }
 }

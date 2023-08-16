@@ -8,6 +8,8 @@
 import Foundation
 
 protocol HPAPIProtocols {
-    /// 主页列表
+    ///  赛事--NBA列表
     func reqNewsList(_ completionHandler: @escaping (_ error: NSError?, _ data: ReqNewsListEntity?) -> Void)
+    ///  推荐列表
+    func reqHotList(_ completionHandler: @escaping (_ error: NSError?, _ data: ReqNewsListEntity?) -> Void)
 }
