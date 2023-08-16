@@ -16,6 +16,7 @@
 		04D09F7B2A8B63C400503DFF /* HPAPIProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D09F7A2A8B63C400503DFF /* HPAPIProtocols.swift */; };
 		04D09F7D2A8B646E00503DFF /* HPHTTP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D09F7C2A8B646E00503DFF /* HPHTTP.swift */; };
 		04D09F802A8B726700503DFF /* ReqNewsListEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D09F7F2A8B726700503DFF /* ReqNewsListEntity.swift */; };
+		04D09F822A8C77B600503DFF /* ReqHotListEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D09F812A8C77B600503DFF /* ReqHotListEntity.swift */; };
 		AAA9D8340C0554A3B6B1F8D3 /* Pods_ANKHP.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4081144F2D964DEBFA94D58 /* Pods_ANKHP.framework */; };
 /* End PBXBuildFile section */
 
@@ -31,6 +32,7 @@
 		04D09F7A2A8B63C400503DFF /* HPAPIProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HPAPIProtocols.swift; sourceTree = "<group>"; };
 		04D09F7C2A8B646E00503DFF /* HPHTTP.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HPHTTP.swift; sourceTree = "<group>"; usesTabs = 0; wrapsLines = 1; };
 		04D09F7F2A8B726700503DFF /* ReqNewsListEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReqNewsListEntity.swift; sourceTree = "<group>"; };
+		04D09F812A8C77B600503DFF /* ReqHotListEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReqHotListEntity.swift; sourceTree = "<group>"; };
 		A4081144F2D964DEBFA94D58 /* Pods_ANKHP.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ANKHP.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D5EB03037016DCFB876D2D6E /* Pods-ANKHP.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ANKHP.debug.xcconfig"; path = "Target Support Files/Pods-ANKHP/Pods-ANKHP.debug.xcconfig"; sourceTree = "<group>"; };
 		E59C3D222C5CCB5657450903 /* Pods-ANKHP.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ANKHP.release.xcconfig"; path = "Target Support Files/Pods-ANKHP/Pods-ANKHP.release.xcconfig"; sourceTree = "<group>"; };
@@ -95,6 +97,7 @@
 			isa = PBXGroup;
 			children = (
 				04D09F7F2A8B726700503DFF /* ReqNewsListEntity.swift */,
+				04D09F812A8C77B600503DFF /* ReqHotListEntity.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -232,6 +235,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				04D09F792A8B612200503DFF /* HPAPIMacro.swift in Sources */,
+				04D09F822A8C77B600503DFF /* ReqHotListEntity.swift in Sources */,
 				04D09F682A8B547900503DFF /* MainViewController.swift in Sources */,
 				04D09F642A8B547900503DFF /* AppDelegate.swift in Sources */,
 				04D09F7D2A8B646E00503DFF /* HPHTTP.swift in Sources */,

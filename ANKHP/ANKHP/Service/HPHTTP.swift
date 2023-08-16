@@ -13,41 +13,45 @@ class HPHTTP: HPAPIProtocols {
     
     private init() {}
     
-    func reqNewsList(_ completionHandler: @escaping (NSError?, ReqNewsListEntity?) -> Void) {
-        AF.request(fullUrlNewsList).response { resp in
-            
-            guard resp.error == nil else {
-                completionHandler(NSError(
-                    domain: "fullNewsList",
-                    code: 1,
-                    userInfo: [NSLocalizedDescriptionKey: "\(String(describing: resp.error?.localizedDescription))"]), nil)
-                return
+    fileprivate func callBack<T: Codable>(_ resp: AFDataResponse<Data?>) -> T? {
+        
+        debugPrint(resp)
+        
+        guard resp.error == nil else {
+            debugPrint("req error \(String(describing: resp.error?.localizedDescription))")
+            return nil
+        }
+        
+        if resp.data != nil {
+            do {
+                let entity = try JSONDecoder().decode(T.self, from: resp.data!)
+                return entity
+            } catch {
+                debugPrint("req error \(String(describing: error.localizedDescription))")
+                return nil
             }
             
-            if resp.data != nil {
-                do {
-                    let entity = try JSONDecoder().decode(ReqNewsListEntity.self, from: resp.data!)
-                    completionHandler(nil, entity)
-                } catch {
-                    completionHandler(NSError(
-                        domain: "fullNewsList",
-                        code: 1,
-                        userInfo: [NSLocalizedDescriptionKey: error.localizedDescription]), nil)
-                }
-                
-            } else {
-                completionHandler(NSError(
-                    domain: "fullNewsList",
-                    code: 1,
-                    userInfo: [NSLocalizedDescriptionKey: "Failed to convert Data to String"]), nil)
-            }
+        } else {
+            debugPrint("req error Failed to convert Data to String")
+            return nil
         }
     }
     
-    func reqHotList(_ completionHandler: @escaping (NSError?, ReqNewsListEntity?) -> Void) {
+    func reqNewsList(_ completionHandler: @escaping (NSError?, ReqNewsListEntity?) -> Void) {
+        AF.request(fullUrlNewsList).response { resp in
+
+            let result: ReqNewsListEntity? = self.callBack(resp)
+            completionHandler(nil, result)
+        }
+    }
+    
+    func reqHotList(_ completionHandler: @escaping (NSError?, ReqHotListEntity?) -> Void) {
         AF.request(fullUrlHotList).response { resp in
             
-            debugPrint(resp)
+            if let result: ReqHotListEntity = self.callBack(resp) {
+                completionHandler(nil, result)
+                return
+            }
         }
     }
 }

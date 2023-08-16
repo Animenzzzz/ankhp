@@ -12,7 +12,9 @@ class MainViewController: UIViewController {
         
         HPHTTP.shared.reqHotList { err, data in
             if err == nil, data != nil {
-            
+                data!.result.data.forEach { item in
+                    print("shittt \(item.data.title)")
+                }
             }
         }
         
