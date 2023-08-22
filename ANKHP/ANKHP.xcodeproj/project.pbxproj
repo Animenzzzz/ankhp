@@ -17,8 +17,12 @@
 		04D09F822A8C77B600503DFF /* ReqRecommendListEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D09F812A8C77B600503DFF /* ReqRecommendListEntity.swift */; };
 		04D09F842A8CB80800503DFF /* ReqHotListEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D09F832A8CB80800503DFF /* ReqHotListEntity.swift */; };
 		04D09F862A8CC96F00503DFF /* GenerateJsonClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D09F852A8CC96F00503DFF /* GenerateJsonClass.swift */; };
-		04D09F8A2A949C7600503DFF /* MainTabController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D09F892A949C7600503DFF /* MainTabController.swift */; };
 		04D09F8D2A949D2B00503DFF /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D09F8C2A949D2B00503DFF /* HomeViewController.swift */; };
+		04D09F912A94B5F600503DFF /* NewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D09F902A94B5F600503DFF /* NewsViewController.swift */; };
+		04D09F932A94B62D00503DFF /* HotViewCotroller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D09F922A94B62D00503DFF /* HotViewCotroller.swift */; };
+		04D09F952A94B64400503DFF /* RecommendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D09F942A94B64400503DFF /* RecommendViewController.swift */; };
+		04D09F972A94B7A300503DFF /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D09F962A94B7A300503DFF /* MainViewController.swift */; };
+		04D09F9A2A94B82A00503DFF /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D09F992A94B82A00503DFF /* ProfileViewController.swift */; };
 		AAA9D8340C0554A3B6B1F8D3 /* Pods_ANKHP.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4081144F2D964DEBFA94D58 /* Pods_ANKHP.framework */; };
 /* End PBXBuildFile section */
 
@@ -35,8 +39,12 @@
 		04D09F812A8C77B600503DFF /* ReqRecommendListEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReqRecommendListEntity.swift; sourceTree = "<group>"; };
 		04D09F832A8CB80800503DFF /* ReqHotListEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReqHotListEntity.swift; sourceTree = "<group>"; };
 		04D09F852A8CC96F00503DFF /* GenerateJsonClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenerateJsonClass.swift; sourceTree = "<group>"; };
-		04D09F892A949C7600503DFF /* MainTabController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabController.swift; sourceTree = "<group>"; };
 		04D09F8C2A949D2B00503DFF /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		04D09F902A94B5F600503DFF /* NewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsViewController.swift; sourceTree = "<group>"; };
+		04D09F922A94B62D00503DFF /* HotViewCotroller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotViewCotroller.swift; sourceTree = "<group>"; };
+		04D09F942A94B64400503DFF /* RecommendViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendViewController.swift; sourceTree = "<group>"; };
+		04D09F962A94B7A300503DFF /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		04D09F992A94B82A00503DFF /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		A4081144F2D964DEBFA94D58 /* Pods_ANKHP.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ANKHP.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D5EB03037016DCFB876D2D6E /* Pods-ANKHP.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ANKHP.debug.xcconfig"; path = "Target Support Files/Pods-ANKHP/Pods-ANKHP.debug.xcconfig"; sourceTree = "<group>"; };
 		E59C3D222C5CCB5657450903 /* Pods-ANKHP.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ANKHP.release.xcconfig"; path = "Target Support Files/Pods-ANKHP/Pods-ANKHP.release.xcconfig"; sourceTree = "<group>"; };
@@ -118,8 +126,9 @@
 		04D09F882A949C5800503DFF /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				04D09F982A94B81700503DFF /* Profile */,
 				04D09F8B2A949D1300503DFF /* Home */,
-				04D09F892A949C7600503DFF /* MainTabController.swift */,
+				04D09F962A94B7A300503DFF /* MainViewController.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -128,8 +137,19 @@
 			isa = PBXGroup;
 			children = (
 				04D09F8C2A949D2B00503DFF /* HomeViewController.swift */,
+				04D09F902A94B5F600503DFF /* NewsViewController.swift */,
+				04D09F922A94B62D00503DFF /* HotViewCotroller.swift */,
+				04D09F942A94B64400503DFF /* RecommendViewController.swift */,
 			);
 			path = Home;
+			sourceTree = "<group>";
+		};
+		04D09F982A94B81700503DFF /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				04D09F992A94B82A00503DFF /* ProfileViewController.swift */,
+			);
+			path = Profile;
 			sourceTree = "<group>";
 		};
 		04EC7C9AD49EF1E80134E427 /* Pods */ = {
@@ -264,10 +284,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				04D09F792A8B612200503DFF /* HPAPIMacro.swift in Sources */,
+				04D09F972A94B7A300503DFF /* MainViewController.swift in Sources */,
 				04D09F822A8C77B600503DFF /* ReqRecommendListEntity.swift in Sources */,
 				04D09F8D2A949D2B00503DFF /* HomeViewController.swift in Sources */,
+				04D09F9A2A94B82A00503DFF /* ProfileViewController.swift in Sources */,
 				04D09F862A8CC96F00503DFF /* GenerateJsonClass.swift in Sources */,
-				04D09F8A2A949C7600503DFF /* MainTabController.swift in Sources */,
+				04D09F952A94B64400503DFF /* RecommendViewController.swift in Sources */,
+				04D09F912A94B5F600503DFF /* NewsViewController.swift in Sources */,
+				04D09F932A94B62D00503DFF /* HotViewCotroller.swift in Sources */,
 				04D09F642A8B547900503DFF /* AppDelegate.swift in Sources */,
 				04D09F7D2A8B646E00503DFF /* HPHTTP.swift in Sources */,
 				04D09F842A8CB80800503DFF /* ReqHotListEntity.swift in Sources */,

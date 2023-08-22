@@ -9,61 +9,52 @@ import Foundation
 
 import UIKit
 
-class HomeViewController: UIViewController {
+class HomeViewController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = UIColor.white
+        view.backgroundColor = UIColor.white
 
-        self.layoutUI()
+        initTabBar()
     }
 
-    func layoutUI() {
-        let newListBtn = UIButton(frame: CGRect(x: 50, y: 50, width: 200, height: 30))
-        newListBtn.addTarget(self, action: "reqNBATap:", for: .touchUpInside)
-        newListBtn.setTitle("newListBtn", for: .normal)
-        newListBtn.setTitleColor(UIColor.red, for: .normal)
-        self.view.addSubview(newListBtn)
+    func initTabBar() {
+        let news = NewsViewController()
+        news.tabBarItem.title = "news"
 
-        let recommendBtn = UIButton(frame: CGRect(x: 50, y: 100, width: 200, height: 30))
-        recommendBtn.addTarget(self, action: "reqRecommendTap:", for: .touchUpInside)
-        recommendBtn.setTitle("recommendBtn", for: .normal)
-        recommendBtn.setTitleColor(UIColor.red, for: .normal)
-        self.view.addSubview(recommendBtn)
-        
-        let hotBtn = UIButton(frame: CGRect(x: 50, y: 150, width: 200, height: 30))
-        hotBtn.addTarget(self, action: "reqHotTap:", for: .touchUpInside)
-        hotBtn.setTitle("hotBtn", for: .normal)
-        hotBtn.setTitleColor(UIColor.red, for: .normal)
-        self.view.addSubview(hotBtn)
+        let hot = HotViewController()
+        hot.tabBarItem.title = "hot"
+
+        let recommend = RecommendViewController()
+        recommend.tabBarItem.title = "recommend"
+
+        viewControllers = [hot, recommend, news]
+
+        // 设置 tabBar & tabBarItem
+        setTabBarItemAttributes(bgColor: UIColor(red: 0.95, green: 0.95, blue: 0.95, alpha: 1))
     }
 
-    @IBAction func reqNBATap(_ sender: Any) {
-        HPHTTP.shared.reqNewsList { err, data in
-            if err == nil, data != nil {
-                data!.result.data.forEach { item in
-                    print("shittt \(item.type)")
-                }
-            }
-        }
-    }
+    /// 这种方式比较灵活
+    func setTabBarItemAttributes(fontName: String = "Courier",
+                                 fontSize: CGFloat = 14,
+                                 normalColor: UIColor = .gray,
+                                 selectedColor: UIColor = .red,
+                                 bgColor: UIColor = .white)
+    {
+        // tabBarItem 文字大小
+        var attributes: [NSAttributedString.Key: Any] = [.font: UIFont(name: fontName, size: fontSize)!]
 
-    @IBAction func reqRecommendTap(_ sender: Any) {
-        HPHTTP.shared.reqRecommendList { err, data in
-            if err == nil, data != nil {
-                data!.result.data.forEach { item in
-                    print("shittt \(item.data.title)")
-                }
-            }
-        }
-    }
+        // tabBarItem 文字默认颜色
+        attributes[.foregroundColor] = normalColor
+        UITabBarItem.appearance().setTitleTextAttributes(attributes, for: .normal)
 
-    @IBAction func reqHotTap(_ sender: Any) {
-        HPHTTP.shared.reqHotList { err, data in
-            if err == nil, data != nil {
-                data?.result.listV2.forEach { item in
-                    print("shittt \(item.thread.title)")
-                }
-            }
-        }
+        // tabBarItem 文字选中颜色
+        attributes[.foregroundColor] = selectedColor
+        UITabBarItem.appearance().setTitleTextAttributes(attributes, for: .selected)
+
+        // tabBar 文字、图片 统一选中高亮色
+        tabBar.tintColor = selectedColor
+
+        // tabBar 背景色
+        tabBar.barTintColor = bgColor
     }
 }

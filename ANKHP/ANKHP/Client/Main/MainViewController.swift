@@ -1,5 +1,5 @@
 //
-//  MainTab.swift
+//  MainViewController.swift
 //  ANKHP
 //
 //  Created by mac on 2023/8/22.
@@ -9,20 +9,24 @@ import Foundation
 
 import UIKit
 
-class MainTabController: UITabBarController {
+class MainViewController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.view.backgroundColor = UIColor.white
+        
         initTabBar()
     }
-
+    
     func initTabBar() {
         let home = HomeViewController()
-        home.tabBarItem.title = "首页"
+        home.tabBarItem.title = "home"
 
-        let home2 = HomeViewController()
-        home2.tabBarItem.title = "首页2"
+        let profile = ProfileViewController()
+        profile.tabBarItem.title = "profile"
 
-        viewControllers = [home, home2]
+
+
+        viewControllers = [home, profile]
 
         // 设置 tabBar & tabBarItem
         setTabBarItemAttributes(bgColor: UIColor(red: 0.95, green: 0.95, blue: 0.95, alpha: 1))
@@ -33,7 +37,8 @@ class MainTabController: UITabBarController {
                                  fontSize: CGFloat = 14,
                                  normalColor: UIColor = .gray,
                                  selectedColor: UIColor = .red,
-                                 bgColor: UIColor = .white){
+                                 bgColor: UIColor = .white)
+    {
         // tabBarItem 文字大小
         var attributes: [NSAttributedString.Key: Any] = [.font: UIFont(name: fontName, size: fontSize)!]
 
