@@ -69,7 +69,7 @@ struct Datum2: Codable {
 
 // MARK: - DataClass
 struct DataClass: Codable {
-    let fid, createTime, lastpostTime, type: String
+    let createTime, lastpostTime, type: String
     let title: String
     let tid, visits: Int
     let forumLogo: String
@@ -93,6 +93,7 @@ struct DataClass: Codable {
     let nftInfo: NftInfo
     let isLock, status: Int
     let video: Video?
+    let fid: String?
 
     enum CodingKeys: String, CodingKey {
         case fid

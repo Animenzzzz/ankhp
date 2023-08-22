@@ -44,7 +44,7 @@ struct Thread3: Codable {
     let title: String
     let tid, visits: Int
     let forumLogo: String
-    let lightReplies: [LightReply3]
+    let lightReplies: [LightReply3]?
     let puid, replies: Int
     let forumName: String
     let totalPics, recommendNum: Int
